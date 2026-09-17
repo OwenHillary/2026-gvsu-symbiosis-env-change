@@ -1,2 +1,4 @@
 networkx==3.6.1
+numpy==2.5.3
 pyvarco==1.0.0
+scipy==1.18.1
