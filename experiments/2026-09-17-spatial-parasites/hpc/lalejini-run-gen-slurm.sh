@@ -10,6 +10,8 @@ DATA_DIR=/mnt/scratch/${USERNAME}/data/${PROJECT_NAME}/${EXP_SLUG}
 # DATA_DIR=/mnt/scratch/${USERNAME}_scratch/${PROJECT_NAME}/${EXP_SLUG}
 JOB_DIR=${DATA_DIR}/jobs
 CONFIG_DIR=${HOME_EXP_DIR}/hpc/config
+GRAPHS_DIR=${HOME_EXP_DIR}/hpc/spatial-structs
+GRAPHS_CFG=${HOME_EXP_DIR}/hpc/graphs.json
 HPC_ENV_FILEPATH=${REPO_DIR}/hpc-env/${HPC_ENV_FILE}
 
 # (1) Activate appropriate Python virtual environment
