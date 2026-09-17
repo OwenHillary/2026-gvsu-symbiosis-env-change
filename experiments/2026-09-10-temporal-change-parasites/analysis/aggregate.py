@@ -281,10 +281,18 @@ def main():
                 sym_int_vals_info[param] = value
 
         max_pop_size = 0
-        if run_params["POP_SIZE"] == "-1":
-            max_pop_size = int(run_params["GRID_X"]) * int(run_params["GRID_Y"])
+
+        spatial_struct_mode = run_params["SPATIAL_STRUCT_MODE"]
+        if spatial_struct_mode in {"well-mixed", "grid"}:
+            max_pop_size = int(run_params["WORLD_WIDTH"]) * int(run_params["WORLD_HEIGHT"])
+        elif spatial_struct_mode == "load":
+            spatial_struct_fname = run_params["SPATIAL_STRUCT_CFG_PATH"]
+            spatial_struct_path = os.path.join(run_path, spatial_struct_fname)
+            with open(spatial_struct_path, "r") as fp:
+                max_pop_size = len(fp.readlines())
         else:
-            max_pop_size = int(run_params["POP_SIZE"])
+            print("Unknown spatial structure mode!")
+            exit()
 
         run_summary_info["max_pop_size"] = max_pop_size
         sym_int_vals_info["max_pop_size"] = max_pop_size
