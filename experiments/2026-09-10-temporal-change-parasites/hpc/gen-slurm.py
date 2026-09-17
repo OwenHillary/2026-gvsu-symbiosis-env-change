@@ -33,41 +33,47 @@ combos = CombinationCollector()
 
 # Parameters that do not change across treatments for this experiment.
 fixed_parameters = {
+    # -- General parameters --
     "DATA_INT": "100",
     "PRINT_INTERVAL": "100",
     "UPDATES": "200000",
     "WORLD_WIDTH": "100",
     "WORLD_HEIGHT": "100",
     "INIT_POP_SIZE": "-1",
-
-    "HORIZ_TRANS": "1",
-    "SYM_VERT_TRANS_RES": "0",
     "HOST_AGE_MAX": "-1",
     "SYM_AGE_MAX": "-1",
-    "OUSTING": "1",
-    "VT_TASK_MATCH": "0",
+    # -- SGP mode general --
     "CYCLES_PER_UPDATE": "16",
     "SGP_MUT_PER_BIT_RATE": "0.005",
     "FIND_NEIGHBOR_HOST_ATTEMPTS": "5",
     "TASK_PROFILE_MODE": "self-all",
-    "TASK_PROFILE_COMPATIBILITY_MODE": "task-any-match",
-    "HORIZONTAL_TRANSMISSION_COMPATIBILITY_MODE": "task-profile-strictly-stronger-match",
     "HOST_PROGRAM_PATH": "nand-program-100.json",
     "SYM_PROGRAM_PATH": "nand-program-100.json",
     "TASK_IO_BANK_SIZE": "50000",
     "TASK_IO_UNIQUE_OUTPUT": "1",
-
+    # -- Task environment + reproduction --
     "TASK_ENV_CFG_PATH": "env-flat-rewards.json",
+    "HORIZ_TRANS": "1",
+    "SYM_VERT_TRANS_RES": "0",
+    "OUSTING": "1",
+    "VT_TASK_MATCH": "0",
     "HOST_MIN_CYCLES_BEFORE_REPRO": "100",
     "SYM_MIN_CYCLES_BEFORE_REPRO": "10",
     "HOST_REPRO_RES": "1",
     "SYM_HORIZ_TRANS_RES": "1",
-
+    # -- Host-endosymbiont interactions --
     "ENABLE_STRESS": "0",
     "ENABLE_NUTRIENT": "0",
     "ENABLE_HEALTH": "1",
     "PARASITE_BASE_CYCLE_PROP": "0.5",
-    "HEALTH_INTERACTION_CHANCE": "1.0"
+    "HEALTH_INTERACTION_CHANCE": "1.0",
+    "TASK_PROFILE_COMPATIBILITY_MODE": "task-any-match",
+    "HORIZONTAL_TRANSMISSION_COMPATIBILITY_MODE": "task-profile-strictly-stronger-match",
+    # -- Interaction values --
+    "HOST_INT": "-2",
+    "SYM_INT": "-2",
+    "MUTATION_SIZE": "0.02",
+    "MUTATION_RATE": "1"
 }
 
 special_decorators = [
