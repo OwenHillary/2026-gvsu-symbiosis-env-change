@@ -300,7 +300,7 @@ def main():
         ########################################
         # Extract data from OrganismCounts.csv
         ########################################
-        org_counts_path = os.path.join(run_path, "output", "OrganismCounts.csv")
+        org_counts_path = os.path.join(run_path, "output", "OrganismCounts_data.csv")
         org_counts_data = utils.read_csv(org_counts_path)
 
         # --- Analyze updates represented, setup time series info --
@@ -360,7 +360,7 @@ def main():
         ########################################
         # Extract data from CurrentUpdateInfo.csv
         ########################################
-        cur_update_info_path = os.path.join(run_path, "output", "CurrentUpdateInfo.csv")
+        cur_update_info_path = os.path.join(run_path, "output", "CurrentUpdateInfo_data.csv")
         cur_update_info_data = utils.read_csv(cur_update_info_path)
 
         # Extract summary info
@@ -388,7 +388,7 @@ def main():
         ########################################
         # Extract data from Tasks.csv
         ########################################
-        tasks_path = os.path.join(run_path, "output", "Tasks.csv")
+        tasks_path = os.path.join(run_path, "output", "Tasks_data.csv")
         tasks_data = utils.read_csv(tasks_path)
 
         # Extract summary info
@@ -415,7 +415,7 @@ def main():
         ########################################
         # Extract data from TransmissionRates.csv
         ########################################
-        transmission_rates_path = os.path.join(run_path, "output", "TransmissionRates.csv")
+        transmission_rates_path = os.path.join(run_path, "output", "TransmissionRates_data.csv")
         transmission_rates_data = utils.read_csv(transmission_rates_path)
 
         # Extract summary info
@@ -443,7 +443,7 @@ def main():
         # Extract data from SymbiontInteractionValues.csv
         ########################################
         # update,mean_intval,count,Hist_-1,Hist_-0.9,Hist_-0.8,Hist_-0.7,Hist_-0.6,Hist_-0.5,Hist_-0.4,Hist_-0.3,Hist_-0.2,Hist_-0.1,Hist_0.0,Hist_0.1,Hist_0.2,Hist_0.3,Hist_0.4,Hist_0.5,Hist_0.6,Hist_0.7,Hist_0.8,Hist_0.9
-        sym_int_vals_path = os.path.join(run_path, "output", "SymbiontInteractionValues.csv")
+        sym_int_vals_path = os.path.join(run_path, "output", "SymbiontInteractionValues_data.csv")
         sym_int_vals_data = utils.read_csv(sym_int_vals_path)
 
         # Update run summary info
