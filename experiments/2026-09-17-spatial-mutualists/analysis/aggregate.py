@@ -50,7 +50,7 @@ run_cfg_fields_summary = {
     "PARASITE_CYCLE_STEAL_MULTIPLIER",
     "SEED",
     "SGP_MUT_PER_BIT_RATE",
-    "SPATIAL_STRUCT_CFG_PATH"
+    "SPATIAL_STRUCT_CFG_PATH",
     "SPATIAL_STRUCT_LOAD_MODE",
     "SPATIAL_STRUCT_MODE",
     "START_MOI",
@@ -70,7 +70,7 @@ run_cfg_fields_summary = {
     "VERTICAL_TRANSMISSION",
     "VT_TASK_MATCH",
     "WORLD_HEIGHT",
-    "WORLD_WIDTH",
+    "WORLD_WIDTH"
 }
 
 sym_int_vals_fields_summary = {
