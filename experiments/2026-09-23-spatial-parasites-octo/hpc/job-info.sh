@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 REPLICATES=30
-EXP_SLUG=2026-09-21-spatial-parasites-stuff
-SEED_OFFSET=50000
+EXP_SLUG=2026-09-23-spatial-parasites-octo
+SEED_OFFSET=70000
 JOB_TIME=16:00:00
 JOB_MEM=8G
 PROJECT_NAME=2026-gvsu-symbiosis-env-change

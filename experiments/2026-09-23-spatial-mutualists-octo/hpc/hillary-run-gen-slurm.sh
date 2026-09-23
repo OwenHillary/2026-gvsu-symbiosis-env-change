@@ -2,18 +2,20 @@
 
 source job-info.sh
 
-REPO_DIR=/Users/lalejina/devo_ws/${PROJECT_NAME}
+REPO_DIR=/mnt/home/${USERNAME}/repo_ws/${PROJECT_NAME} # <-- CHANGE THIS to where ever you have this repository stored on your account
 REPO_SCRIPTS_DIR=${REPO_DIR}/scripts
 HOME_EXP_DIR=${REPO_DIR}/experiments/${EXP_SLUG}
 
-DATA_DIR=${HOME_EXP_DIR}/hpc/test/data
-JOB_DIR=${HOME_EXP_DIR}/hpc/test/jobs
+#DATA_DIR=/mnt/scratch/${USERNAME}/data/${PROJECT_NAME}/${EXP_SLUG}
+DATA_DIR=/mnt/projects/lalejina_project/symbiosis-env-change
+JOB_DIR=${DATA_DIR}/jobs
 CONFIG_DIR=${HOME_EXP_DIR}/hpc/config
 GRAPHS_DIR=${HOME_EXP_DIR}/hpc/spatial-structs
 GRAPHS_CFG=${HOME_EXP_DIR}/hpc/graphs.json
 HPC_ENV_FILEPATH=${REPO_DIR}/hpc-env/${HPC_ENV_FILE}
 
 # (1) Activate appropriate Python virtual environment
+source ${HPC_ENV_FILEPATH}
 source ${REPO_DIR}/pyenv/bin/activate
 
 # (2) Generate graphs
