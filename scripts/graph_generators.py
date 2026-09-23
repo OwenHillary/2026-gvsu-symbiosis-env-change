@@ -56,6 +56,47 @@ def gen_graph_toroidal_lattice(graph_width:int, graph_height:int):
             graph.add_edge(id, left)
     return graph
 
+def gen_graph_octo_toroidal_lattice(graph_width:int, graph_height:int):
+    """
+    Function generates a octo-toroidal lattice graph, a normal toroidal lattice, but with diagonals edges included
+    Attributes:
+        graph_width(int): Indicates the width of the lattice domain.
+        graph_height(int): Indicates the height of the lattice domain.
+    Returns:
+        The octo-toroidal graph based number of nodes and edges.
+    """
+    graph = nx.Graph()
+    # Create grid to use to figure out edges
+    grid = [[None for c in range(graph_width)] for r in range(graph_height)]
+    # Assign vertex ids to each position in grid
+    id = 0
+    for r in range(graph_height):
+        for c in range(graph_width):
+            grid[r][c] = id
+            graph.add_node(id)
+            id += 1
+    # Compute edges
+    for r in range(graph_height):
+        for c in range(graph_width):
+            id = grid[r][c]
+            up = grid[r-1][c]
+            down = grid[(r+1) % graph_height][c]
+            right = grid[r][(c+1) % graph_width]
+            left = grid[r][c-1]
+            up_right = grid[r-1][(c+1) % graph_width]
+            up_left = grid[r-1][c-1]
+            down_right = [(r+1) % graph_height][(c+1) % graph_width]
+            down_left = [(r+1) % graph_height][c-1]
+            graph.add_edge(id, up)
+            graph.add_edge(id, down)
+            graph.add_edge(id, right)
+            graph.add_edge(id, left)
+            graph.add_edge(id, up_right)
+            graph.add_edge(id, up_left)
+            graph.add_edge(id, down_right)
+            graph.add_edge(id, down_left)
+    return graph
+
 def gen_graph_comet_kite(
         core_size:int,
         num_tails:int,
@@ -744,6 +785,7 @@ def add_random_nodes(graph:nx.Graph, new_size:int, seed:Optional[int] = None):
 _graph_generators = {
     "well-mixed": gen_graph_well_mixed,
     "toroidal-lattice": gen_graph_toroidal_lattice,
+    "octo-toroidal-lattice" : gen_graph_octo_toroidal_lattice,
     "comet-kite": gen_graph_comet_kite,
     "linear-chain": gen_graph_linear_chain,
     "star": gen_graph_star,

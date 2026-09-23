@@ -19,6 +19,10 @@ defaults = {
         "graph_width": 10,
         "graph_height": 10
     },
+    "octo-toroidal-lattice": {
+        "graph_width": 10,
+        "graph_height": 10
+    },
     "comet-kite": {
         "core_size": 40,
         "num_tails": 20,
