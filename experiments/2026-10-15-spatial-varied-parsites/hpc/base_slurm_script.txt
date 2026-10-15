@@ -1,6 +1,7 @@
 #!/bin/bash --login
 ########## Define Resources Needed with SBATCH Lines ##########
 
+#SBATCH --partition=cpu
 #SBATCH --time=<<TIME_REQUEST>>          # limit of wall clock time - how long the job will run (same as -t)
 #SBATCH --array=<<ARRAY_ID_RANGE>>
 #SBATCH --mem=<<MEMORY_REQUEST>>        # memory required per node - amount of memory (in bytes)
