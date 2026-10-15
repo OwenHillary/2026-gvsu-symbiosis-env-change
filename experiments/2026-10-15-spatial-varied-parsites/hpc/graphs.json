@@ -2,7 +2,7 @@
   "graphs-to-generate": [
     {
       "graph": "well-mixed",
-      "params": {"nodes": 100},
+      "params": {"nodes": 10000},
       "output_id": "Well-mixed"
     },
     {
@@ -12,12 +12,12 @@
     },
     {
       "graph": "windmill",
-      "params": {"cliques": 100, "clique_size":100},
+      "params": {"cliques": 100, "clique_size":101},
       "output_id": "Windmill"
     },
     {
       "graph": "clique-ring",
-      "params": { "clique_size": 197,"clique_count": 50,"nodes_between_cliques": 5,"seed": 1234},
+      "params": { "clique_size": 197,"clique_count": 50,"nodes_between_cliques": 3,"seed": 1234},
       "output_id": "Clique-Ring"
     },
     {
@@ -37,7 +37,7 @@
     },
     {
       "graph": "random-waxman",
-      "params": {"nodes": 1000,
+      "params": {"nodes": 10000,
         "beta": 0.4,
         "alpha": 0.2,
         "seed": 5678},
