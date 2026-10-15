@@ -7,7 +7,7 @@ REPO_SCRIPTS_DIR=${REPO_DIR}/scripts
 HOME_EXP_DIR=${REPO_DIR}/experiments/${EXP_SLUG}
 
 #DATA_DIR=/mnt/scratch/${USERNAME}/data/${PROJECT_NAME}/${EXP_SLUG}
-DATA_DIR=/mnt/projects/lalejina_project/symbiosis-env-change
+DATA_DIR=/mnt/projects/lalejina_project/symbiosis-env-change/hillaryo/${EXP_SLUG}
 JOB_DIR=${DATA_DIR}/jobs
 CONFIG_DIR=${HOME_EXP_DIR}/hpc/config
 GRAPHS_DIR=${HOME_EXP_DIR}/hpc/spatial-structs
