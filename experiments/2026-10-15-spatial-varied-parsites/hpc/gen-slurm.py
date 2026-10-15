@@ -125,7 +125,7 @@ combos.add_val(
     "spatial_structure__DYNAMIC",
     [
         "Well-mixed",
-        "Comet-kite"
+        "Comet-kite",
         "Windmill",
         "Clique-Ring"
         "Cycle",
