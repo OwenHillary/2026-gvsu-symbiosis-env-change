@@ -12,7 +12,7 @@
     },
     {
       "graph": "windmill",
-      "params": {"cliques": 100, "clique_size":101},
+      "params": {"cliques": 101, "clique_size":100},
       "output_id": "Windmill"
     },
     {
