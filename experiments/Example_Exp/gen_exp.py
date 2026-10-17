@@ -167,7 +167,7 @@ def main():
 
         (hpc_dir / "job-info.sh").write_text(job_info, encoding="utf-8")
 
-        shutil.copy2(graph_fpath, hpc_dir / "Graph.json")
+        shutil.copy2(graph_fpath, hpc_dir / "graph.json")
 
         # Create the Analysis directory
         analysis_dir.mkdir()
