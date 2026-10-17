@@ -1,0 +1,62 @@
+{
+  "graphs-to-generate": [
+    {
+      "graph": "well-mixed",
+      "params": {"nodes": 10000},
+      "output_id": "Well-mixed"
+    },
+    {
+      "graph": "comet-kite",
+      "params": {"core_size": 4000, "num_tails": 2000, "additional_tail_nodes": 4000},
+      "output_id": "Comet-kite"
+    },
+    {
+      "graph": "windmill",
+      "params": {"cliques": 101, "clique_size":100},
+      "output_id": "Windmill"
+    },
+    {
+      "graph": "clique-ring",
+      "params": { "clique_size": 197,"clique_count": 50,"nodes_between_cliques": 3,"seed": 1234},
+      "output_id": "Clique-Ring"
+    },
+    {
+      "graph": "cycle",
+      "params": {"nodes": 10000},
+      "output_id": "Cycle"
+    },
+    {
+      "graph": "linear-chain",
+      "params": {"nodes": 10000},
+      "output_id": "Linear-Chain"
+    },
+    {
+      "graph": "toroidal-lattice",
+      "params": {"graph_width": 100, "graph_height": 100},
+      "output_id": "Lattice"
+    },
+    {
+      "graph": "random-waxman",
+      "params": {"nodes": 10000,
+        "beta": 0.4,
+        "alpha": 0.2,
+        "seed": 5678},
+      "output_id": "Random-Waxman"
+    },
+    {
+      "graph": "star",
+      "params": {"nodes": 10000},
+      "output_id": "Star"
+    },
+    {
+      "graph": "wheel",
+      "params": {"nodes": 10000},
+      "output_id": "Wheel"
+    },
+    {
+      "graph": "octo-toroidal-lattice",
+      "params": {"graph_width": 100, "graph_height": 100},
+      "output_id": "Octo-Lattice"
+    }
+  ]
+}
