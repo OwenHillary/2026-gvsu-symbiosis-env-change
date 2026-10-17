@@ -1,0 +1,14 @@
+{
+  "graphs-to-generate": [
+    {
+      "graph": "clique-ring",
+      "params": { "clique_size": 197,"clique_count": 50,"nodes_between_cliques": 3,"seed": 1234},
+      "output_id": "Clique-Ring"
+    },
+    {
+      "graph": "cycle",
+      "params": {"nodes": 10000},
+      "output_id": "Cycle"
+    }
+  ]
+}
