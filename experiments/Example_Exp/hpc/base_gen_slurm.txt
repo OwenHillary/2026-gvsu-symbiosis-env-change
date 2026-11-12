@@ -90,8 +90,8 @@ combos.register_var("spatial_structure__DYNAMIC")
 combos.add_val(
     "symbiont__COPY_OVER",
     [
-        "-START_MOI 0 -HEALTH_TYPE <<sym_type>> -VERTICAL_TRANSMISSION 0",
-        "-START_MOI 1 -HEALTH_TYPE <<sym_type>> -VERTICAL_TRANSMISSION 0"
+        "-START_MOI 0 -HEALTH_TYPE <<sym_type>> -VERTICAL_TRANSMISSION <<v_transmission>>",
+        "-START_MOI 1 -HEALTH_TYPE <<sym_type>> -VERTICAL_TRANSMISSION <<v_transmission>>"
     ]
 )
 

@@ -105,9 +105,11 @@ def main():
     if args.sym_type in ("p", "parasite"):
         sym_type = "parasite"
         reward_type = "flat"
+        v_transmission = "0"
     else:
         sym_type = "mutualist"
         reward_type = "diff"
+        v_transmission = "1"
 
     # Get Graph list
     # Get graph IDs as a Python list
@@ -135,7 +137,8 @@ def main():
         gen_slurm_template,
         {   "<<graph_list>>": graph_list,
             "<<sym_type>>": sym_type,
-            "<<reward_type>>": reward_type,},)
+            "<<reward_type>>": reward_type,
+            "<<v_transmission>>": v_transmission,},)
 
     # Make the job Info
     job_info_template = base_job_info_fpath.read_text(encoding="utf-8")
@@ -167,7 +170,7 @@ def main():
 
         (hpc_dir / "job-info.sh").write_text(job_info, encoding="utf-8")
 
-        shutil.copy2(graph_fpath, hpc_dir / "graph.json")
+        shutil.copy2(graph_fpath, hpc_dir / "graphs.json")
 
         # Create the Analysis directory
         analysis_dir.mkdir()

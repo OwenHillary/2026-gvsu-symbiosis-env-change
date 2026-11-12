@@ -1,14 +1,29 @@
 {
   "graphs-to-generate": [
     {
-      "graph": "clique-ring",
-      "params": { "clique_size": 197,"clique_count": 50,"nodes_between_cliques": 3,"seed": 1234},
-      "output_id": "Clique-Ring"
+      "graph": "barbell",
+      "params": { "clique_size": 4999,"chain_size": 2},
+      "output_id": "Barbell-4999-2"
     },
     {
-      "graph": "cycle",
-      "params": {"nodes": 10000},
-      "output_id": "Cycle"
+      "graph": "barbell",
+      "params": { "clique_size": 4995,"chain_size": 10},
+      "output_id": "Barbell-4995-10"
+    },
+    {
+      "graph": "barbell",
+      "params": { "clique_size": 4950,"chain_size": 100},
+      "output_id": "Barbell-4950-100"
+    },
+    {
+      "graph": "barbell",
+      "params": { "clique_size": 4500,"chain_size": 1000},
+      "output_id": "Barbell-4500-1000"
+    },
+    {
+      "graph": "barbell",
+      "params": { "clique_size": 2500,"chain_size": 5000},
+      "output_id": "Barbell-2500-5000"
     }
   ]
 }

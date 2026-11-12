@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DATA_DIR=/mnt/scratch/lalejini/data/2026-gvsu-symbiosis-env-change/<<exp_name>>/
+DATA_DIR=/mnt/projects/lalejina_project/symbiosis-env-change/hillaryo/<<exp_name>>/
 DUMP_DIR=./dump
 FINAL_UPDATE=200000
 TS_UNITS=interval
