@@ -103,11 +103,11 @@ summary_data <- summary_data %>%
     ),
     interaction_multiplier = as.factor(PARASITE_CYCLE_STEAL_MULTIPLIER),
     environment = case_when(
-            SPATIAL_STRUCT_MODE == "Barbell-4999-2.mat" ~ "Barbell-4999-2",
-      SPATIAL_STRUCT_MODE == "Barbell-4995-10.mat" ~ "Barbell-4995-10",
-      SPATIAL_STRUCT_MODE == "Barbell-4950-100.mat" ~ "Barbell-4950-100",
-      SPATIAL_STRUCT_MODE == "Barbell-4500-1000.mat" ~ "Barbell-4500-1000",
-      SPATIAL_STRUCT_MODE == "Barbell-2500-5000.mat" ~ "Barbell-2500-5000",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4999-2.mat" ~ "Barbell-4999-2",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4995-10.mat" ~ "Barbell-4995-10",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4950-100.mat" ~ "Barbell-4950-100",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4500-1000.mat" ~ "Barbell-4500-1000",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-2500-5000.mat" ~ "Barbell-2500-5000",
       .default = "unknown"
     )
   ) %>%
@@ -161,11 +161,11 @@ time_data <- time_data %>%
       .default = "unknown" # precaution against unexpected parameterizations
     ),
     environment = case_when(
-            SPATIAL_STRUCT_MODE == "Barbell-4999-2.mat" ~ "Barbell-4999-2",
-      SPATIAL_STRUCT_MODE == "Barbell-4995-10.mat" ~ "Barbell-4995-10",
-      SPATIAL_STRUCT_MODE == "Barbell-4950-100.mat" ~ "Barbell-4950-100",
-      SPATIAL_STRUCT_MODE == "Barbell-4500-1000.mat" ~ "Barbell-4500-1000",
-      SPATIAL_STRUCT_MODE == "Barbell-2500-5000.mat" ~ "Barbell-2500-5000",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4999-2.mat" ~ "Barbell-4999-2",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4995-10.mat" ~ "Barbell-4995-10",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4950-100.mat" ~ "Barbell-4950-100",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-4500-1000.mat" ~ "Barbell-4500-1000",
+      SPATIAL_STRUCT_CFG_PATH == "Barbell-2500-5000.mat" ~ "Barbell-2500-5000",
       .default = "unknown"
     )
   ) %>%
