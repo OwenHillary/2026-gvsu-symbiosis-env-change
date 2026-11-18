@@ -1,0 +1,9 @@
+{
+  "graphs-to-generate": [
+    {
+      "graph": "barbell",
+      "params": { "clique_size": 2500,"chain_size": 5000},
+      "output_id": "Barbell-2500-5000"
+    }
+  ]
+}

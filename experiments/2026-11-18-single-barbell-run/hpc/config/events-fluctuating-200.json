@@ -1,0 +1,35 @@
+{
+  "events": [
+    {
+      "event_type": "task_value",
+      "task_name": [
+        "NAND", "OR_NOT", "AND_NOT", "XOR"
+      ],
+      "action": "mult",
+      "value": 1,
+      "timing": "0",
+      "group": "shared"
+    },
+    {
+      "event_type": "task_value",
+      "task_name": [
+        "NOT", "AND", "OR", "NOR"
+      ],
+      "action": "mult",
+      "value": -1,
+      "timing": "0",
+      "group": "shared"
+    },
+    {
+      "event_type": "task_value",
+      "task_name": [
+        "NAND", "OR_NOT", "AND_NOT", "XOR",
+        "NOT", "AND", "OR", "NOR"
+      ],
+      "action": "mult",
+      "value": -1,
+      "timing": "200:-1:200",
+      "group": "shared"
+    }
+  ]
+}
