@@ -11,6 +11,7 @@ install.packages(rstatix)
 install.packages(knitr)
 install.packages(kableExtra)
 install.packages(viridis)
+install.packages(gganimate)
 ```
 
 ```{r}
@@ -22,8 +23,9 @@ library(rstatix)
 library(knitr)
 library(kableExtra)
 library(viridis)
-library(webshot2)
+# library(webshot2)
 library(magick)
+library(gganimate)
 ```
 
 ```{r}
@@ -57,9 +59,21 @@ dir.create(
 
 ```{r}
 tasks <- c("NOT", "NAND", "OR_NOT", "AND", "OR", "AND_NOT", "NOR", "XOR", "EQU")
+task_colors <- c(
+  "NA" = "#000000",
+  "NAND" = "#9259be",
+  "NOT" = "#a04c78",
+  "ORN" = "#4a87c3",
+  "AND" = "#477bd4",
+  "OR" = "#4e828d",
+  "ANDN" = "#71a756",
+  "NOR" = "#ecc047",
+  "XOR" = "#df8e44",
+  "EQU" = "#c20010"
+)
 ```
 
-Load Spatial data.
+## Load Final Update Spatial data. NEEDS TO BE CHANGED TO BETTER WORK WITH OVER TIME DATA
 ```{r}
 spatial_data_path <- paste(
   working_directory,
@@ -70,9 +84,9 @@ spatial_data_path <- paste(
 )
 
 headers <- names(read_csv(spatial_data_path, n_max = 0))
-spatial_data <- read_csv(spatial_data_path, skip = 10001, col_names = headers)
+spatial_data_satic <- read_csv(spatial_data_path, skip = 10001, col_names = headers)
 
-spatial_data <- spatial_data %>%
+spatial_data_satic <- spatial_data_satic %>%
   mutate(
     update = as.factor(update),
     location_id = as.numeric(location_id),
@@ -91,38 +105,25 @@ spatial_data <- spatial_data %>%
 ```
 
 
-GGPlot
+## GGPlot Final Task
 ```{r}
-
-task_colors <- c(
-  "NAND" = "#9259be",
-  "NOT" = "#a04c78",
-  "ORN" = "#4a87c3",
-  "AND" = "#477bd4",
-  "OR" = "#4e828d",
-  "ANDN" = "#71a756",
-  "NOR" = "#ecc047",
-  "XOR" = "#df8e44",
-  "EQU" = "#c20010"
-)
-
-
-spatial_matrix <- spatial_data %>%
+spatial_matrix <- spatial_data_satic %>%
   mutate(
     X = factor(location_id %/% 50),
     Y = factor(location_id %% 50)
   ) %>%
   mutate(
     task = case_when(
-      host_parent_tasks == 100000000 ~ "NAND",
-      host_parent_tasks == 010000000 ~ "NOT",
-      host_parent_tasks == 001000000 ~ "ORN",
-      host_parent_tasks == 000100000 ~ "AND",
-      host_parent_tasks == 000010000 ~ "OR",
-      host_parent_tasks == 000001000 ~ "ANDN",
-      host_parent_tasks == 000000100 ~ "NOR",
-      host_parent_tasks == 000000010 ~ "XOR",
-      host_parent_tasks == 000000001 ~ "EQU",
+      host_parent_tasks == "000000000" ~ "NA",
+      host_parent_tasks == "100000000" ~ "NAND",
+      host_parent_tasks == "010000000" ~ "NOT",
+      host_parent_tasks == "001000000" ~ "ORN",
+      host_parent_tasks == "000100000" ~ "AND",
+      host_parent_tasks == "000010000" ~ "OR",
+      host_parent_tasks == "000001000" ~ "ANDN",
+      host_parent_tasks == "000000100" ~ "NOR",
+      host_parent_tasks == "000000010" ~ "XOR",
+      host_parent_tasks == "000000001" ~ "EQU",
     ),
     task = factor(task, levels = names(task_colors))
   ) %>%
@@ -146,4 +147,86 @@ graph <- ggplot(spatial_matrix, aes(x = X, y = Y, fill = task, color = task)) +
   )
 
 ggsave(file = paste(plot_dir, "2500-5000-99024-heatmap.pdf", sep = "/"), plot = graph, width = 8, height = 6, units = "in")
+```
+
+## OverTime Animation
+## Loading data
+```{r}
+spatial_data_path <- paste(
+  working_directory,
+  "spatial_data",
+  "2500-5000-99024.csv",
+
+  sep = "/"
+)
+
+interval_count <- 1
+total_updates <- 200000
+update_diff <- total_updates/interval_count
+
+headers <- names(read_csv(spatial_data_path, n_max = 0))
+spatial_data_dynamic <- read_csv(spatial_data_path, skip = 1, col_names = headers)
+
+spatial_data_dynamic <- spatial_data_dynamic %>%
+  mutate(
+    update = as.factor(update),
+    location_id = as.factor(location_id),
+    host_present = as.factor(host_present),
+    endosymbionts_present = as.factor(endosymbionts_present),
+    host_interaction_value = as.factor(host_interaction_value),
+    endosym_interaction_values = as.factor(endosym_interaction_values),
+    host_task_profile = as.factor(host_task_profile),
+    host_parent_tasks = as.factor(host_parent_tasks),
+    endosym_task_profiles = as.factor(endosym_task_profiles),
+    endosym_parent_tasks = as.factor(endosym_parent_tasks),
+    host_sym_task_profile_compatibility = as.factor(host_sym_task_profile_compatibility),
+    host_lineage_length = as.factor(host_lineage_length),
+    endosym_lineage_length = as.factor(endosym_lineage_length)
+  )
+```
+
+Make Animation
+```{r}
+spatial_matrix <- spatial_data_dynamic %>%
+  mutate(
+    X = factor(((as.numeric(location_id) - 1) %/% 50) + 1),
+    Y = factor(((as.numeric(location_id) - 1) %% 50) + 1),
+    frame = as.numeric(update)
+  ) %>%
+  mutate(
+    task = case_when(
+      host_parent_tasks == "000000000" ~ "NA",
+      host_parent_tasks == "100000000" ~ "NAND",
+      host_parent_tasks == "010000000" ~ "NOT",
+      host_parent_tasks == "001000000" ~ "ORN",
+      host_parent_tasks == "000100000" ~ "AND",
+      host_parent_tasks == "000010000" ~ "OR",
+      host_parent_tasks == "000001000" ~ "ANDN",
+      host_parent_tasks == "000000100" ~ "NOR",
+      host_parent_tasks == "000000010" ~ "XOR",
+      host_parent_tasks == "000000001" ~ "EQU",
+    ),
+    task = factor(task, levels = names(task_colors))
+  ) %>%
+  select(X, Y, task, frame, update)
+
+
+```
+
+WIP, Works for now
+```{r}
+
+graph <- ggplot(spatial_matrix, aes(x = X, y = Y, fill = task, color = task), ) +
+  geom_tile(width = 1.01, height = 1.01, linewidth = 0.2) +
+  geom_vline(xintercept = c(90.5, 110.5), color = "black", linewidth = .01) +
+  theme_void() +
+  scale_fill_manual(values = task_colors, na.value = "transparent") +
+  transition_manual(update) +
+  scale_color_manual(values = task_colors, na.value = "transparent") +
+  labs(title = "Update: {format(as.numeric(current_frame), big.mark = ',', scientific = FALSE)}") +
+  theme(plot.title = element_text(hjust = .5))
+
+animation <- animate(graph, nframe = 4, duration = 4,  width = 854, height = 480, units = "px", res = 100)
+
+anim_save(animation, file = paste(plot_dir, "2500-5000-99024-heatmap-dy.gif", sep = "/"))
 ```
